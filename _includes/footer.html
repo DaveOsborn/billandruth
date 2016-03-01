@@ -1,38 +1,41 @@
-<section class="[ band  band--tint ]  page-foot">
+<div class="push"></div>
+  <footer>
+    <aside class="wrap">
+      <ol class="prev-posts">
+        <p class="list-title">Recent Posts</p>
+        {% for post in site.posts | limit:3 %} <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title | strip_html | strip_newlines | truncate: 30 }} </a></span>
+              <span class="date">{{post.date | date: "%b %d, %Y" }}</span>
+            </li>
+        {% endfor %}
+      </ol>
 
-    <div class="wrapper">
-        <div class="layout  layout--middle">
-            <div class="layout__item  lap-and-up-one-quarter">
-                [insert img here]
-            </div
-           ><div class="layout__item  lap-and-up-one-quarter">
-                <p>Osborn Multimedia is the portfolio, blog and digital playground of Dave Osborn, a front-end developer and designer living in Wigan and working for <a href="//www.angelsolutions.co.uk/">Angel Solutions</a> in Liverpool.</p>
-            </div
-           ><div class="layout__item  lap-and-up-one-half">
-               <ul class="list-social">
-                    <li class="list-social__item">
-                        <a rel="me" href="https://twitter.com/DaveOsborn_"><i class="icon  icon--round-twitter"></i>Twitter</a>
-                    </li>
-                    <li class="list-social__item">
-                        <a rel="me" href="https://github.com/DaveOsborn"><i class="icon  icon--round-github"></i>Github</a>
-                    </li>
-                    <li class="list-social__item">
-                        <a rel="me" href="https://dribbble.com/DaveOsborn_"><i class="icon  icon--round-dribbble"></i>Dribbble</a>
-                    </li>
-                    <li class="list-social__item">
-                        <a rel="me" href="https://uk.linkedin.com/pub/david-osborn/30/64/b01"><i class="icon  icon--round-linkedin"></i>LinkedIn</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+      <div class="social">
+        <ul>
+            <li><a id="mail" href="mailto:{{ site.owner.email }}"><span class="foot-link">Contact Me</span></a></li>
+
+            {% if site.owner.twitter %}
+            <li><a id="twit" href="http://twitter.com/{{ site.owner.twitter }}" target="_blank"><span class="foot-link">@{{ site.owner.twitter }}</span></a></li>
+            {% endif %}
+
+
+            {% if site.owner.dribbble %}
+            <li><a id="drib" href="http://dribbble.com/{{ site.owner.dribbble }}" target="_blank"><span class="foot-link">Dribbble</span></a></li>
+            {% endif %}
+        </ul>
     </div>
+    </aside>
+    <small>&copy; {{ site.time | date: '%Y' }} {{ site.owner.name }}. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://jekyll.gtat.me/about">Balzac</a> theme.</small>
+  </footer>
 
-</section>
+  <!-- If they're out, get some from the cellar -->
+  <script>window.jQuery || document.write('<script src="{{ site.url }}/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  <script src="{{ site.url }}/assets/js/retina.min.js"></script>
 
-<footer class="page-micro">
+  <!-- Custom JS -->
+  <script src="{{ site.url }}/assets/js/scripts.js"></script>
 
-    <p class="wrapper">
-        <small class="page-micro__copy">&copy; 2015 &mdash; Dave Osborn | <a href="{{site.baseurl}}">osbornmultimedia.com</a> | All rights reserved</small>
-    </p>
 
-</footer>
+  </body>
+</html>

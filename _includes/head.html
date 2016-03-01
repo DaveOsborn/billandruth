@@ -1,44 +1,69 @@
-<head>
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<meta charset="utf-8">
+<title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.description }}">
+<meta name="keywords" content="{{ page.tags | join: ', ' }}">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+{% include graphs.html %}
 
-<title>{{ page.title }} &ndash; Osborn Multimedia &ndash; The Portfolio and Blog of Dave Osborn (CSS, OOCSS, front-end magic, graphic design and plenty more)</title>
+<link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 
-<!-- Prefetch DNS for external assets (Twitter widgets etc). -->
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="dns-prefetch" href="//themes.googleusercontent.com">
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans|Crete+Round">
-<link rel="stylesheet" href="/css/osbornmultimedia.min.css">
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="dns-prefetch" href="//platform.twitter.com">
-<link rel="dns-prefetch" href="//www.google-analytics.com">
-<link rel="dns-prefetch" href="https://twitter.com">
+<!-- Type -->
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic" rel='stylesheet' type='text/css' />
+<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ site.url }}/assets/css/entypo.css" media="all">
 
-<!-- Prerender work page -->
-<link rel="prerender" href="http://osbornmultimedia.com/work/">
 
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@DaveOsborn_">
-<meta name="twitter:domain" content="osbornmultimedia.com">
-<meta name="twitter:creator" content="@DaveOsborn_">
-<meta name="twitter:title" content="{{ page.title }} – Osborn Multimedia">
-<meta name="twitter:image:src" content="/logo.png">
-{% if page.meta %}
-    <meta name="twitter:description" content="{{ page.meta }}">
-{% endif %}
+<!-- For all browsers -->
+<link rel="stylesheet" href="{{ site.url }}/assets/css/i.css">
 
-<link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/osbornmultimedia">
+<!-- Fresh Squeezed jQuery -->
 
-<link rel="shortcut icon" href="/icon.png">
-<link rel="apple-touch-icon-precomposed" href="/icon.png">
-<meta name="apple-mobile-web-app-title" content="osbornmultimedia">
-<meta name="description" content="Articles on CSS, OOCSS, SASS, front-end magic and graphic design">
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="{{ site.url }}/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="{{ site.url }}/favicon.ico">
 
 <style>
-    html{font-family:"Open Sans",sans-serif; color:white; background:#0AC5F4; text-align:center;}
-    h1{font-family:"Crete Round",serif; text-shadow: 0px 2px 2px Black; font-size:75px; font-weight: normal}
+  header.site-header{
+    background:black;
+    opacity: 0.6;
+    position:fixed;
+  }
 </style>
 
-</head>
+<div id="bump">
+  <body class="">
+    <header class="site-header">
+      <div class="wrap">
+        <hgroup>
+          <h1><a href="/">{{ site.title }}</a></h1>
+        </hgroup>
+        <a href="#nav" class="menu"><span class='icons'>☰</span></a>
+        <nav role="navigation">
+          <ul>
+            <li>
+              <a href="/" title="{{ site.title }}">Home</a>
+            </li>
+
+            {% for link in site.links %}
+                <li><a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+            {% endfor %}
+
+          </ul>
+        </nav>
+      </div>
+    </header>

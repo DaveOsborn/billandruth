@@ -1,15 +1,80 @@
 # Site settings
-title: Osborn Multimedia
+title: Bill and Ruth Osborn
+tagline:  No ordinary life.
+description:      Describe your website.
 email: dave@osbornmultimedia.com
 description:
-baseurl: "/osbornmultimedia"
+baseurl: "/"
+canonical: /
+url: /
 twitter_username: DaveOsborn
 github_username:  DaveOsborn
 
 # Build settings
-markdown: redcarpet
+
 encoding: utf-8
 highlighter: rouge
 permalink: /:year/:month/:title
 paginate: 10
 exclude: ["node_modules", "app-js", "README.md"]
+
+# Owner/author information
+owner:
+  name:           Dave Osborn
+  avatar:         avatar.png
+  bio:            "Designer, Developer"
+  email:          dave@osbornmultimedia.com
+  twitter:        DaveOsborn_
+  github:         DaveOsborn
+  instagram:
+  dribbble:       DaveOsborn_
+  disqus:
+  location:       "Wigan, UK"
+  # Plug in your disqus shortname!
+
+tools:
+  standards:      "HTML, SCSS, Jekyll"
+  software:       "git"
+
+# Open Graph customization
+opengraph:
+  locale:           en_GB
+
+# Links to include in top navigation
+# For external links add external: true
+links:
+  - title: About
+    url: /about
+  - title: Ruth
+    url: /ruth
+  - title: Bill
+    url: /bill
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:    Europe/London
+future:      true
+
+markdown:    kramdown
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+  coderay:
+    coderay_line_numbers:
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+sass:
+    style: :compressed
+
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink:   /:categories/:title
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp"]
