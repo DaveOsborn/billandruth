@@ -4,9 +4,9 @@ tagline:  No ordinary life.
 description:      Describe your website.
 email: dave@osbornmultimedia.com
 description:
-baseurl: "/"
-canonical: /
-url: /
+baseurl: "http://daveosborn.github.io/billandruth/"
+canonical: http://daveosborn.github.io/billandruth/
+url: http://daveosborn.github.io/billandruth/
 twitter_username: DaveOsborn
 github_username:  DaveOsborn
 
